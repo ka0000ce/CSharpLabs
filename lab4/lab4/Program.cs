@@ -6,43 +6,47 @@ using System.Threading.Tasks;
 
 namespace lab4
 {
-    class Program
-    {
+    class Program {
 
-        static void Main(string[] args)
+static void Main(string[] args)
         {
-            int mostOtenNumber = 0;
-            int highestNumberOfRepetitions = 0;
-            int numberOfRepetitions = 0;
-            Console.Write("Введiть довжину масиву: ");
+            int a = 0;
+            int b = 0;
+            int c = 0;
+
+            Console.Write ("Введіть довжину масиву: ");
 
             int[] arr = new int[int.Parse(Console.ReadLine())];
 
-
-            for (int i = 0; i < arr.Length; i++)
-            {
-                Console.Write("Введiть " + i + " елемент масиву = ");
-                arr[i] = int.Parse(Console.ReadLine());
+            for (int i = 0; i < arr.Length; i++) {
+                Console.Write("Введіть " + i + " елемент масиву = ");
+                arr[i] = int.Parse(Console.ReadLine());               
             }
-            foreach (int i in arr)
+
+            for (int i = 0; i < arr.Length ; i++) 
             {
-                foreach (int j in arr)
+          
+                for (int j = 0; j < arr.Length ; j++)
                 {
-                    if (i == j)
+                   
+                    if (arr[i] == arr[j])
                     {
-                        numberOfRepetitions++;
+                        c++;
                     }
                 }
 
-                if (highestNumberOfRepetitions < numberOfRepetitions)
+                if (b < c)
                 {
-                    highestNumberOfRepetitions = numberOfRepetitions;
-                    mostOtenNumber = i;
+                    b = c;
+                    a = arr[i];
                 }
-                numberOfRepetitions = 0;
+                c = 0;
+
+                Console.WriteLine("Найбільше повторень = {0}, кількість повторень = {1}", a, b);
             }
-            Console.WriteLine("Найбiльше повторюється число {0}, кiлькiсть його повторень становить {1}", mostOtenNumber, highestNumberOfRepetitions);
+          
+            
             Console.ReadKey(true);
         }
+      }
     }
-}
